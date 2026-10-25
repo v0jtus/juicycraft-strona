@@ -1,0 +1,23 @@
+{
+  "updated": "2026-10-25T12:30:00+01:00",
+  "items": [
+    {
+      "kind": "WAŻNE",
+      "date": "2026-10-25",
+      "title": "JuicyCraft startuje 30 października o 18:00!",
+      "text": "IP: juicycraft.pl. Czeka na Was survival z ekonomią, pracami, aukcjami i działkami, Jaskinie z pięcioma klasami i Wodzem goblinów, pety i kosmetyki oraz działki creative dla budowniczych."
+    },
+    {
+      "kind": "NOWOŚĆ",
+      "date": "2026-10-25",
+      "title": "Ruszyła mapa świata i nowa strona",
+      "text": "Mapa świata działa na żywo w przeglądarce, a na juicycraft.pl znajdziecie poradnik, opis Jaskiń i FAQ."
+    },
+    {
+      "kind": "NOWOŚĆ",
+      "date": "2026-10-25",
+      "title": "Pety za Szekle z Discorda Zuzi",
+      "text": "Rybka w akwarium i Sówka są dostępne wyłącznie za Szekle zarobione na Discordzie JuicySuzi. Wystarczy połączyć konto przez /discord link."
+    }
+  ]
+}
