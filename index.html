@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JuicyCraft – serwer Minecraft społeczności JuicySuzi</title>
+<meta name="description" content="JuicyCraft – serwer Minecraft społeczności JuicySuzi. Survival z ekonomią i działkami, Jaskinie z klasami i bossem, pety i kosmetyki. IP: juicycraft.pl. Start 30.10 o 18:00.">
+<meta property="og:title" content="JuicyCraft – serwer Minecraft JuicySuzi">
+<meta property="og:description" content="Survival, Jaskinie z klasami, pety. IP: juicycraft.pl – start 30.10 o 18:00.">
+<meta property="og:image" content="https://juicycraft.pl/img/og.jpg">
+<meta property="og:url" content="https://juicycraft.pl/">
+<meta name="theme-color" content="#120A1A">
+<link rel="icon" type="image/png" href="img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --pink:#FF3CAC; --pink-2:#ff6cc3; --purple:#784BA0; --bg:#120A1A; --surface:#22152F; --surface-2:#2d1c3d;
+  --text:#F6EEFA; --muted:#C9B8D8; --accent:#FFD23F; --line:rgba(255,60,172,.25);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Nunito,system-ui,sans-serif;line-height:1.55;overflow-x:hidden}
+a{color:var(--pink-2)}
+img{max-width:100%;display:block}
+.pixel{font-family:'Press Start 2P',monospace;line-height:1.5;letter-spacing:.5px}
+.wrap{width:min(1100px,100% - 32px);margin-inline:auto}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;border-radius:12px;font-weight:800;text-decoration:none;border:2px solid transparent;transition:transform .12s,box-shadow .12s,background .12s;cursor:pointer;font-size:16px;font-family:inherit}
+.btn:hover{transform:translateY(-2px)}
+.btn-pink{background:linear-gradient(135deg,var(--pink),var(--purple));color:#fff;box-shadow:0 8px 28px rgba(255,60,172,.35)}
+.btn-pink:hover{box-shadow:0 12px 36px rgba(255,60,172,.5)}
+.btn-ghost{background:rgba(18,10,26,.55);color:#fff;border-color:var(--line);backdrop-filter:blur(6px)}
+.btn-ghost:hover{border-color:var(--pink)}
+.btn svg{width:20px;height:20px;fill:currentColor}
+
+/* nav */
+.nav{position:fixed;inset:0 0 auto 0;z-index:20;padding:14px 0;transition:background .2s}
+.nav.solid{background:rgba(18,10,26,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;gap:14px}
+.nav .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:#fff}
+.nav .brand img{width:36px;height:36px;border-radius:10px}
+.nav .brand span{font-size:12px}
+.nav .links{margin-left:auto;display:flex;gap:4px}
+.nav .links a{color:var(--muted);text-decoration:none;font-weight:700;padding:8px 12px;border-radius:8px}
+.nav .links a:hover{color:#fff;background:rgba(255,255,255,.06)}
+@media (max-width:720px){.nav .links{display:none}}
+
+/* hero */
+.hero{position:relative;min-height:100svh;display:grid;place-items:center;text-align:center;padding:120px 0 80px;isolation:isolate}
+.hero .bg{position:absolute;inset:0;z-index:-2;background:url(img/hero.jpg) center/cover no-repeat}
+@media (max-width:720px){.hero .bg{background-image:url(img/hero-small.jpg);background-position:30% center}}
+.hero .shade{position:absolute;inset:0;z-index:-1;background:
+  radial-gradient(ellipse at 50% 60%, rgba(18,10,26,.15), rgba(18,10,26,.6) 75%),
+  linear-gradient(to bottom, rgba(18,10,26,.45), rgba(18,10,26,.05) 30%, rgba(18,10,26,.95) 100%)}
+.hero .panel{background:rgba(18,10,26,.5);border:1px solid var(--line);border-radius:28px;padding:40px 28px 36px;backdrop-filter:blur(10px);box-shadow:0 30px 80px rgba(0,0,0,.45);max-width:860px;margin-inline:auto}
+@media (max-width:720px){.hero .panel{padding:32px 16px 28px;border-radius:20px}}
+.hero h1{margin:0 0 14px}
+.hero .logo{width:min(560px,86%);height:auto;margin-inline:auto;filter:drop-shadow(0 0 22px rgba(255,60,172,.55)) drop-shadow(0 8px 18px rgba(0,0,0,.5))}
+.hero .tag{color:var(--muted);font-size:clamp(16px,2.4vw,20px);margin:0 auto 28px;max-width:640px;font-weight:600}
+.hero .tag b{color:#fff}
+.ip{display:inline-flex;align-items:center;gap:12px;background:rgba(18,10,26,.75);border:2px solid var(--line);border-radius:16px;padding:12px 12px 12px 22px;backdrop-filter:blur(8px);box-shadow:0 10px 40px rgba(0,0,0,.4)}
+.ip .addr{font-size:clamp(14px,3vw,20px);color:var(--accent);text-shadow:0 0 14px rgba(255,210,63,.5)}
+.ip button{background:var(--pink);color:#fff;border:0;border-radius:10px;padding:12px 16px;font-weight:800;cursor:pointer;font-family:inherit;font-size:15px;transition:background .12s}
+.ip button:hover{background:var(--pink-2)}
+.ip button.ok{background:#3ddc84;color:#07251a}
+.count{margin:30px auto 0;display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.count .box{background:rgba(34,21,47,.85);border:1px solid var(--line);border-radius:14px;min-width:84px;padding:12px 10px;backdrop-filter:blur(6px)}
+@media (max-width:420px){.count{gap:6px}.count .box{min-width:0;flex:1 1 0;padding:10px 4px}}
+.count .n{font-size:clamp(18px,4vw,28px);color:#fff}
+.count .l{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-top:6px;font-weight:700}
+.count-title{margin:34px 0 0;color:var(--muted);font-weight:700;font-size:14px;letter-spacing:2px;text-transform:uppercase}
+.count-live{display:none;margin-top:30px}
+.hero .cta{margin-top:30px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.scroll-hint{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);color:var(--muted);font-size:12px;letter-spacing:2px;animation:bob 1.6s infinite}
+@keyframes bob{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,6px)}}
+
+/* sections */
+section{padding:84px 0}
+.sec-title{text-align:center;margin:0 0 12px;font-size:clamp(16px,3vw,24px);color:#fff;text-shadow:0 0 18px rgba(255,60,172,.6)}
+.sec-sub{text-align:center;color:var(--muted);margin:0 auto 44px;max-width:620px;font-size:17px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px}
+.card{background:linear-gradient(180deg,var(--surface),var(--surface-2));border:1px solid var(--line);border-radius:18px;overflow:hidden;transition:transform .15s,border-color .15s,box-shadow .15s}
+.card:hover{transform:translateY(-4px);border-color:var(--pink);box-shadow:0 14px 40px rgba(255,60,172,.18)}
+.card .pic{aspect-ratio:16/10;background:#1a0f26 center/cover no-repeat;position:relative}
+.card .pic::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,var(--surface) 0%,transparent 45%)}
+.card .body{padding:6px 22px 24px}
+.card h3{margin:0 0 10px;font-size:13px;color:var(--pink-2)}
+.card p{margin:0;color:var(--muted)}
+.card ul{margin:12px 0 0;padding-left:18px;color:var(--muted)}
+.card li{margin:4px 0}
+
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;counter-reset:s}
+.step{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:22px;position:relative}
+.step::before{counter-increment:s;content:counter(s);position:absolute;top:-16px;left:18px;width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--pink),var(--purple));display:grid;place-items:center;font-family:'Press Start 2P',monospace;font-size:14px;color:#fff;box-shadow:0 6px 16px rgba(255,60,172,.4)}
+.step h4{margin:10px 0 8px;font-size:17px}
+.step p{margin:0;color:var(--muted);font-size:15px}
+.step code{background:rgba(255,60,172,.15);color:#fff;padding:2px 7px;border-radius:6px;font-size:14px}
+
+.split{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+@media (max-width:820px){.split{grid-template-columns:1fr}}
+.split .mascot{display:grid;place-items:center}
+.split .mascot img{width:min(320px,70%);filter:drop-shadow(0 0 30px rgba(255,60,172,.55));animation:float 3.4s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+.split h2{font-size:clamp(15px,2.6vw,22px);margin:0 0 16px;color:#fff}
+.split p{color:var(--muted);font-size:17px;margin:0 0 14px}
+.socials{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+
+.map-strip{background:linear-gradient(90deg,rgba(255,60,172,.12),rgba(120,75,160,.12));border-block:1px solid var(--line)}
+.map-strip .wrap{display:flex;gap:20px;align-items:center;justify-content:space-between;flex-wrap:wrap;padding:28px 0}
+.map-strip h3{margin:0 0 6px;font-size:13px;color:#fff}
+.map-strip p{margin:0;color:var(--muted)}
+
+footer{padding:48px 0 40px;border-top:1px solid var(--line);color:var(--muted);font-size:15px}
+footer .wrap{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:start}
+@media (max-width:720px){footer .wrap{grid-template-columns:1fr}}
+footer a{color:var(--pink-2);text-decoration:none}
+footer a:hover{text-decoration:underline}
+footer .cols{display:flex;gap:40px;flex-wrap:wrap}
+footer h5{margin:0 0 8px;color:#fff;font-size:13px}
+footer ul{list-style:none;margin:0;padding:0}
+footer li{margin:4px 0}
+.fine{margin-top:24px;font-size:13px;opacity:.7}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="wrap">
+    <a class="brand" href="#"><img src="img/avatar.png" alt=""><span class="pixel">JuicyCraft</span></a>
+    <div class="links">
+      <a href="#co">Co gramy</a>
+      <a href="#jak">Jak wbić</a>
+      <a href="#zuzia">Zuzia</a>
+      <a href="http://mapa.juicycraft.pl:25520" target="_blank" rel="noopener">Mapa</a>
+      <a href="https://discord.gg/w9wUDA2wny" target="_blank" rel="noopener">Discord</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="bg"></div><div class="shade"></div>
+  <div class="wrap"><div class="panel">
+    <h1><img class="logo" src="img/logo.png" alt="JuicyCraft" width="1123" height="382"></h1>
+    <p class="tag">Serwer Minecraft społeczności <b>JuicySuzi</b>. Survival z ekonomią, Jaskinie z klasami i bossem, pety i własna paczka zasobów.</p>
+
+    <div class="ip" id="ipbox">
+      <span class="pixel addr" id="ip">juicycraft.pl</span>
+      <button type="button" id="copy" aria-label="Skopiuj adres serwera">Kopiuj IP</button>
+    </div>
+
+    <p class="count-title pixel" id="count-title">Start za</p>
+    <div class="count" id="count">
+      <div class="box"><div class="n pixel" id="d">0</div><div class="l">dni</div></div>
+      <div class="box"><div class="n pixel" id="h">00</div><div class="l">godz</div></div>
+      <div class="box"><div class="n pixel" id="m">00</div><div class="l">min</div></div>
+      <div class="box"><div class="n pixel" id="s">00</div><div class="l">sek</div></div>
+    </div>
+    <p class="count-live pixel" id="count-live" style="color:var(--accent)">Serwer jest otwarty – wbijaj!</p>
+
+    <div class="cta">
+      <a class="btn btn-pink" href="https://discord.gg/w9wUDA2wny" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M19.3 5.3A17 17 0 0 0 15.1 4l-.2.4a15 15 0 0 1 3.7 1.9 14 14 0 0 0-13.2 0A15 15 0 0 1 9.1 4.4L8.9 4a17 17 0 0 0-4.2 1.3C2 9.3 1.3 13.2 1.6 17a17 17 0 0 0 5.2 2.6l1.1-1.8a11 11 0 0 1-1.7-.8l.4-.3a12 12 0 0 0 10.8 0l.4.3-1.7.8 1.1 1.8a17 17 0 0 0 5.2-2.6c.4-4.4-.7-8.3-3.1-11.7ZM8.7 14.7c-1 0-1.9-1-1.9-2.1s.8-2.1 1.9-2.1 1.9 1 1.9 2.1-.9 2.1-1.9 2.1Zm6.6 0c-1 0-1.9-1-1.9-2.1s.8-2.1 1.9-2.1 1.9 1 1.9 2.1-.8 2.1-1.9 2.1Z"/></svg>
+        Dołącz na Discorda
+      </a>
+      <a class="btn btn-ghost" href="http://mapa.juicycraft.pl:25520" target="_blank" rel="noopener">🗺️ Mapa świata</a>
+      <a class="btn btn-ghost" href="https://kick.com/juicysuzi" target="_blank" rel="noopener">💚 Zuzia na Kicku</a>
+    </div>
+  </div></div>
+  <div class="scroll-hint pixel">▼</div>
+</header>
+
+<section id="co">
+  <div class="wrap">
+    <h2 class="sec-title pixel">Co na Ciebie czeka</h2>
+    <p class="sec-sub">Jeden serwer, trzy światy. Wszystko na własnym pluginie pisanym pod tę społeczność.</p>
+    <div class="cards">
+      <article class="card">
+        <div class="pic" style="background-image:url(img/ikona-survival.jpg);background-position:center 60%"></div>
+        <div class="body">
+          <h3 class="pixel">⛏ Survival</h3>
+          <p>Klasyczne przetrwanie z ekonomią i Soczkami jako walutą.</p>
+          <ul><li>prace, aukcje i rynek</li><li>działki z ochroną przed griefem</li><li>skrzynki, głosowanie, vote party</li></ul>
+        </div>
+      </article>
+      <article class="card">
+        <div class="pic" style="background-image:url(img/ikona-jaskinie.jpg);background-position:center 45%"></div>
+        <div class="body">
+          <h3 class="pixel">🗡 Jaskinie</h3>
+          <p>Instancjonowane dungeony dla drużyn do 4 osób.</p>
+          <ul><li>5 klas: wojownik, obrońca, łucznik, mag, kapłan</li><li>gobliny, pułapki i Wódz z trzema fazami</li><li>skarbiec, ranking i tygodniowe mutacje</li></ul>
+        </div>
+      </article>
+      <article class="card">
+        <div class="pic" style="background-image:url(img/ikona-pety.jpg);background-position:center 55%"></div>
+        <div class="body">
+          <h3 class="pixel">🐙 Pety i kosmetyki</h3>
+          <p>Zwierzaki, czapki, baloniki i sztuczki. Tylko wygląd, zero przewagi w grze.</p>
+          <ul><li>własna paczka zasobów, włącza się sama</li><li>wystawa petów na spawnie</li><li>część petów tylko za Szekle z Discorda Zuzi</li></ul>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="jak" style="background:linear-gradient(180deg,transparent,rgba(120,75,160,.08),transparent)">
+  <div class="wrap">
+    <h2 class="sec-title pixel">Jak wbic na serwer</h2>
+    <p class="sec-sub">Minecraft: Java Edition. Działa też bez konta premium i na starszych wersjach gry.</p>
+    <div class="steps">
+      <div class="step"><h4>Skopiuj IP</h4><p>W grze wybierz <b>Gra wieloosobowa → Dodaj serwer</b> i wklej <code>juicycraft.pl</code>.</p></div>
+      <div class="step"><h4>Zaakceptuj paczkę</h4><p>Przy wejściu serwer zapyta o paczkę zasobów. Kliknij <b>Tak</b>, bez niej nie zobaczysz petów i broni z Jaskiń.</p></div>
+      <div class="step"><h4>Wybierz świat</h4><p>Na spawnie stoją NPC: survival, Jaskinie i creative. Podejdź i kliknij.</p></div>
+      <div class="step"><h4>Połącz Discorda</h4><p>Wpisz <code>/discord link</code>, a kod wyślij botowi na Discordzie. Dostaniesz rangi i dostęp do petów za Szekle.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="map-strip">
+  <div class="wrap">
+    <div><h3 class="pixel">Mapa serwera 24/7</h3><p>Zobacz, gdzie ktoś już buduje, zanim wybierzesz miejsce na dom.</p></div>
+    <a class="btn btn-pink" href="http://mapa.juicycraft.pl:25520" target="_blank" rel="noopener">Otwórz mapę</a>
+  </div>
+</div>
+
+<section id="zuzia">
+  <div class="wrap split">
+    <div>
+      <h2 class="pixel">Zuzia i JuicyCraft</h2>
+      <p>JuicyCraft powstał dla widzów Zuzi. Kiedy JuicySuzi wchodzi na serwer, bot daje znać na Discordzie, a gra toczy się często na streamie.</p>
+      <p>Na Discordzie Zuzi zbierasz <b>Szekle</b> za aktywność. Część petów w grze kupisz tylko za nie, więc warto tam zajrzeć.</p>
+      <div class="socials">
+        <a class="btn btn-ghost" href="https://kick.com/juicysuzi" target="_blank" rel="noopener">Kick</a>
+        <a class="btn btn-ghost" href="https://discord.gg/PZVNSHaUdZ" target="_blank" rel="noopener">Discord Zuzi</a>
+        <a class="btn btn-ghost" href="https://beacons.ai/juicysuzi" target="_blank" rel="noopener">Wszystkie social media</a>
+      </div>
+    </div>
+    <div class="mascot"><img src="img/soczek.png" alt="Soczek – maskotka JuicyCraft"></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div class="pixel" style="color:#fff;font-size:13px;margin-bottom:8px">JuicyCraft</div>
+      <div>IP: <b style="color:#fff">juicycraft.pl</b> · Minecraft: Java Edition</div>
+      <div>Kontakt: <a href="mailto:kontakt@juicycraft.pl">kontakt@juicycraft.pl</a></div>
+      <p class="fine">JuicyCraft nie jest powiązany z Mojang ani Microsoft. Minecraft jest znakiem towarowym Mojang AB.</p>
+    </div>
+    <div class="cols">
+      <div><h5 class="pixel">Serwer</h5><ul>
+        <li><a href="https://discord.gg/w9wUDA2wny" target="_blank" rel="noopener">Discord JuicyCraft</a></li>
+        <li><a href="http://mapa.juicycraft.pl:25520" target="_blank" rel="noopener">Mapa świata</a></li>
+        <li><a href="https://discord.gg/w9wUDA2wny" target="_blank" rel="noopener">Regulamin (na Discordzie)</a></li>
+      </ul></div>
+      <div><h5 class="pixel">Zuzia</h5><ul>
+        <li><a href="https://kick.com/juicysuzi" target="_blank" rel="noopener">Kick</a></li>
+        <li><a href="https://discord.gg/PZVNSHaUdZ" target="_blank" rel="noopener">Discord JuicySuzi</a></li>
+        <li><a href="https://beacons.ai/juicysuzi" target="_blank" rel="noopener">beacons.ai/juicysuzi</a></li>
+      </ul></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // kopiowanie IP
+  var btn=document.getElementById('copy');
+  btn.addEventListener('click',function(){
+    var ip='juicycraft.pl';
+    var done=function(){btn.textContent='Skopiowano!';btn.classList.add('ok');setTimeout(function(){btn.textContent='Kopiuj IP';btn.classList.remove('ok')},1800)};
+    if(navigator.clipboard){navigator.clipboard.writeText(ip).then(done,function(){fallback()})}else{fallback()}
+    function fallback(){var t=document.createElement('textarea');t.value=ip;document.body.appendChild(t);t.select();try{document.execCommand('copy');done()}catch(e){}document.body.removeChild(t)}
+  });
+  // odliczanie do 30.10.2026 18:00 czasu polskiego (CET = UTC+1)
+  var start=Date.UTC(2026,9,30,17,0,0);
+  var pad=function(n){return (n<10?'0':'')+n};
+  function tick(){
+    var diff=start-Date.now();
+    if(diff<=0){document.getElementById('count').style.display='none';document.getElementById('count-title').style.display='none';document.getElementById('count-live').style.display='block';return}
+    var s=Math.floor(diff/1000);
+    document.getElementById('d').textContent=Math.floor(s/86400);
+    document.getElementById('h').textContent=pad(Math.floor(s%86400/3600));
+    document.getElementById('m').textContent=pad(Math.floor(s%3600/60));
+    document.getElementById('s').textContent=pad(s%60);
+    setTimeout(tick,1000);
+  }
+  tick();
+  // pasek nawigacji
+  var nav=document.getElementById('nav');
+  var onScroll=function(){nav.classList.toggle('solid',window.scrollY>40)};
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+})();
+</script>
+</body>
+</html>
