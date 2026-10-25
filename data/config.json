@@ -5,7 +5,7 @@
   "offlineModeSupported": true,
   "launchAt": "2026-10-30T18:00:00+01:00",
   "discordUrl": "https://discord.gg/w9wUDA2wny",
-  "mapUrl": "http://mapa.juicycraft.pl:25520",
+  "mapUrl": "https://mapa.juicycraft.pl",
   "shopUrl": "https://juicycraft.tebex.store",
   "voteUrls": [],
   "features": { "rankings": false, "shop": false, "voting": false }
