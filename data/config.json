@@ -8,5 +8,5 @@
   "mapUrl": "https://mapa.juicycraft.pl",
   "shopUrl": "https://juicycraft.tebex.store",
   "voteUrls": [],
-  "features": { "rankings": false, "shop": false, "voting": false }
+  "features": { "rankings": false, "shop": true, "voting": false }
 }
